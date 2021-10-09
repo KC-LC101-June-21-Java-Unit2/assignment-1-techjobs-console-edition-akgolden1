@@ -81,7 +81,10 @@ public class JobData {
             //get the information and store it in aValue
             String aValue = row.get(column);
 //if aValue contains a value, add it to my Hashmap titled row - this isn't right but something like it
-            if ((aValue.contains(value)) && (aValue.toUpperCase().contains(value.toUpperCase()))){
+            System.out.println("aValue outside of the if block" + aValue);
+            if ((aValue.toUpperCase().contains(value.toUpperCase()))){
+                System.out.println("aValue in the if block is" + aValue);
+                System.out.println("I'm on the if block of findByColumnAndValue");
                 jobs.add(row);
             }
         }
