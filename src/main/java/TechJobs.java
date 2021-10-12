@@ -66,12 +66,12 @@ public class TechJobs {
                 JobData.findByValue(searchTerm);//I think this is right???
 
                 if (searchField.equals("all")){
-                    System.out.println("I'm on the if block");
+                    //System.out.println("I'm on the if block");
                    // if ((searchField.equals("all")) && (searchField.toUpperCase().contains(searchTerm.toUpperCase()))) {
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
-                    System.out.println("I'm on the else block");
-                    System.out.println("I'm on the if block and the SearchField is " + searchField);
+                    //System.out.println("I'm on the else block");
+                   // System.out.println("I'm on the if block and the SearchField is " + searchField);
                     //if (searchField.toUpperCase().contains ( searchTerm.toUpperCase())) {
                         printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                     }

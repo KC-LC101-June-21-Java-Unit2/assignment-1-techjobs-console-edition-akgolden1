@@ -81,10 +81,10 @@ public class JobData {
             //get the information and store it in aValue
             String aValue = row.get(column);
 //if aValue contains a value, add it to my Hashmap titled row - this isn't right but something like it
-            System.out.println("aValue outside of the if block" + aValue);
+            //System.out.println("aValue outside of the if block" + aValue);
             if ((aValue.toUpperCase().contains(value.toUpperCase()))){
-                System.out.println("aValue in the if block is" + aValue);
-                System.out.println("I'm on the if block of findByColumnAndValue");
+                //System.out.println("aValue in the if block is" + aValue);
+                //System.out.println("I'm on the if block of findByColumnAndValue");
                 jobs.add(row);
             }
         }
@@ -108,7 +108,7 @@ public class JobData {
         // if ((searchField.equals("all")) && (searchField.toUpperCase().contains(searchTerm.toUpperCase()))) {
         //if (column.toUpperCase().contains(propertyValue.toUpperCase())) {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-        System.out.println("I'm in findByValue");
+        //System.out.println("I'm in findByValue");
         //for every row (job) in allJobs - in order to loop through them we have to get them first
         for (HashMap<String, String> row : allJobs) { //for every row in allJobs
             for (String column : row.keySet()) {//for every column in that row, get the value
@@ -117,7 +117,7 @@ public class JobData {
 
                     if (propertyValue.toUpperCase().contains(value.toUpperCase())) {
 
-                        System.out.println("value is:" + value + "and propertyValue is:" + propertyValue );
+                        //System.out.println("value is:" + value + "and propertyValue is:" + propertyValue );
                         jobs.add(row);//may need to be jobs.add(column)
                     }
                 }
