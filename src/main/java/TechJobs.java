@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +11,7 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -57,18 +58,27 @@ public class TechJobs {
                 // How does the user want to search (e.g. by skill or employer)
                 String searchField = getUserSelection("Search by:", columnChoices);
 
+
                 // What is their search term?
                 System.out.println("\nSearch term:");
                 String searchTerm = in.nextLine();
 
-                if (searchField.equals("all")) {
+                JobData.findByValue(searchTerm);//I think this is right???
+
+                if (searchField.equals("all")){
+                    //System.out.println("I'm on the if block");
+                   // if ((searchField.equals("all")) && (searchField.toUpperCase().contains(searchTerm.toUpperCase()))) {
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
-                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                    //System.out.println("I'm on the else block");
+                   // System.out.println("I'm on the if block and the SearchField is " + searchField);
+                    //if (searchField.toUpperCase().contains ( searchTerm.toUpperCase())) {
+                        printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                    }
                 }
             }
         }
-    }
+
 
     // Returns the key of the selected item from the choices Dictionary
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
@@ -112,7 +122,7 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
@@ -120,6 +130,28 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        if (someJobs.size() == 0) {
+            System.out.print("No Results");
+            return;//doesn't really return anything
+        }
+
+        for (HashMap<String, String> someJob : someJobs) {//someJob represents single job or row in someJobs parameter)
+            //I missed what the book explained about Map.Entry, an existing object
+
+            System.out.println("\n*****");
+
+            for (Map.Entry<String, String> jobInfo : someJob.entrySet()) {  //understand what jobInfo represents in the second loop
+
+                String jobResults;
+                jobResults = jobInfo.getKey() + ": " + jobInfo.getValue();
+                //Try putting the getkey and getvalue items into a variable
+                System.out.println(jobResults);
+
+                // System.out.println("printJobs is not implemented yet");
+
+            }
+            System.out.println("*****");
+        }
+
     }
 }
