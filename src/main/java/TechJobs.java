@@ -131,13 +131,14 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         if (someJobs.size() == 0) {
-            System.out.println("No Results");
+            System.out.print("No Results");
             return;//doesn't really return anything
         }
+
         for (HashMap<String, String> someJob : someJobs) {//someJob represents single job or row in someJobs parameter)
             //I missed what the book explained about Map.Entry, an existing object
 
-            System.out.println("*****");
+            System.out.println("\n*****");
 
             for (Map.Entry<String, String> jobInfo : someJob.entrySet()) {  //understand what jobInfo represents in the second loop
 
@@ -149,7 +150,7 @@ public class TechJobs {
                 // System.out.println("printJobs is not implemented yet");
 
             }
-            System.out.println("*****" + "\n");
+            System.out.println("*****");
         }
 
     }
